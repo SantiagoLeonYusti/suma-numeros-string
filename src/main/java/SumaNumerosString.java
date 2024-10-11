@@ -15,34 +15,31 @@ public class SumaNumerosString {
     }
 
     // Se valida que la entrada no este vacia o sea nula
-    public static void validarEntrada(String input) {
+    public static int sumaNumerosDeString(String input) {
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException("El string de entrada está vacío o es nulo.");
         }
-    }
 
-    // Método que suma los números encontrados en el string
-    public static int sumaNumerosDeString(String input) {
-        validarEntrada(input); // Se valida la entrada antes de proceder
-
-        // Compilación del patrón para encontrar números
+        // Compilacion del patron para encontrar numeros
         Pattern pattern = Pattern.compile("\\d+");
         Matcher matcher = pattern.matcher(input);
 
         int sum = 0;
         boolean found = false;
 
-        // Ciclo que busca y suma todos los números encontrados
+
+        // Ciclo que busca y suma todos los numeros encontrado
         while (matcher.find()) {
             found = true;
             sum += Integer.parseInt(matcher.group());
         }
 
-        // Excepción para cuando no se encuentran números
+        // Excepcion para cuando no ecneuntra numeros
         if (!found) {
             throw new IllegalArgumentException("No se encontraron números en la cadena de entrada.");
         }
 
-        return sum; // Retorna el valor de la suma
+        // Retorna el valor de la suma
+        return sum;
     }
 }
